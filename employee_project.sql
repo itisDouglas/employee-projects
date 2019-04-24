@@ -15,7 +15,7 @@ CREATE TABLE employee(
 CREATE TABLE project(
     project_id NUMBER(10) CONSTRAINT project_id_key PRIMARY KEY,
     project_name VARCHAR(25) NOT NULL,
-    project_descript VARCHAR(25) NOT NULL,
+    project_descript VARCHAR(50) NOT NULL,
     project_start_date DATE NOT NULL
 );
 
@@ -72,44 +72,44 @@ INSERT INTO employee VALUES(
     "MI",
     "36783",
     1951-11-19,
-    2
+    1
 );
 
 
 INSERT INTO employee VALUES(
     5,
-    "Jon",
-    "Snow",
-    "123 Winterfell",
-    "North",
-    "WA",
-    "76986",
-    1988-01-03,
-    2
+    "Steven",
+    "Miller",
+    "89 Windrun Rd",
+    "Tamriel",
+    "UT",
+    "65498",
+    1992-06-27,
+    1
 );
 
 INSERT INTO employee VALUES(
     6,
-    "Jon",
-    "Snow",
-    "123 Winterfell",
-    "North",
-    "WA",
-    "76986",
-    1988-01-03,
-    2
+    "Tom",
+    "Hanks",
+    "4581 Schneid Ct",
+    "Linda Vista",
+    "CA",
+    "34213",
+    1964-08-23,
+    3
 );
 
 INSERT INTO employee VALUES(
     7,
-    "Jon",
-    "Snow",
-    "123 Winterfell",
-    "North",
-    "WA",
-    "76986",
-    1988-01-03,
-    2
+    "George",
+    "Martin",
+    "7 Westoros Ln",
+    "Westoros",
+    "CA",
+    "86473",
+    1957-04-15,
+    1
 );
 
 INSERT INTO employee VALUES(
@@ -126,25 +126,94 @@ INSERT INTO employee VALUES(
 
 INSERT INTO employee VALUES(
     9,
-    "Jon",
-    "Snow",
-    "123 Winterfell",
-    "North",
-    "WA",
-    "76986",
-    1988-01-03,
-    2
+    'Leo',
+    'da Vinci',
+    '87 Old Place',
+    'Venice',
+    'CA',
+    '12335',
+    1483-03-26,
+    1
 );
 
 INSERT INTO employee VALUES(
     10,
-    "Jon",
-    "Snow",
-    "123 Winterfell",
-    "North",
-    "WA",
-    "76986",
-    1988-01-03,
-    2
+    "John",
+    "Cena",
+    "321 Unseen St",
+    "Boston",
+    "MA",
+    "23123",
+    1970-09-10,
+    3
 );
 
+INSERT INTO project VALUES(
+    1,
+    "Green Initiative",
+    "Developing plant meat",
+    2018-05-06
+);
+
+INSERT INTO project VALUES(
+    2,
+    "Red Initiative",
+    "Voice enable fire torches",
+    2017-12-25
+);
+
+INSERT INTO project VALUES(
+    3,
+    "Blue Initiative",
+    "Smart water filter",
+    2016-11-16
+);
+
+INSERT INTO project VALUES(
+    4,
+    "Soccer Initiative",
+    "Making the best cleats",
+    2018-04-23
+);
+
+INSERT INTO project VALUES(
+    5,
+    "Cat in Hat",
+    "Smart hat for cats",
+    2019-01-03
+);
+
+INSERT INTO project VALUES(
+    6,
+    "Hydro Power",
+    "Ocean water car",
+    2017-09-20
+);
+
+INSERT INTO project VALUES(
+    7,
+    "Smart Writing",
+    "Smart pen that checks spelling",
+    2018-03-17
+);
+
+INSERT INTO project VALUES(
+    8,
+    "Dog Chow",
+    "Dog food recipe app",
+    2016-04-14
+);
+
+INSERT INTO project VALUES(
+    9,
+    "Awesome Bot",
+    "Robot that is a perfect artist",
+    2019-08-25
+);
+
+INSERT INTO project VALUES(
+    10,
+    "8 ball",
+    "AI that guides you through the day",
+    2017-09-13
+);
