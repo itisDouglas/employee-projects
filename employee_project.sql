@@ -8,7 +8,7 @@ CREATE TABLE employee(
     state CHAR(2) NOT NULL,
     zip_code VARCHAR(10) NOT NULL,
     birthdate DATE NOT NULL,
-    billing_rate NUMBER CONSTRAINT billing_rate_key REFERENCES project(project_id) ON DELETE CASCADE,
+    billing_rate NUMBER CONSTRAINT billing_rate_foreign_key REFERENCES project(project_id) ON DELETE CASCADE,
 );
 
 -- the projects table
@@ -20,15 +20,42 @@ CREATE TABLE project(
 );
 
 --create sequences here
-
+CREATE SEQUENCE s_employee NOCACHE;
+CREATE SEQUENCE s_project NOCACHE;
 --create indexes here
 
 --establish formatting codes here
+TTITLE LEFT "Date: "_DATE CENTER "Employee Report" RIGHT "Page: " FORMAT 999 SQL.PNO SKIP 2;
+BTITLE CENTER "Created by: " SQL.USER RIGHT "Page: " FORMAT 999 SQL.PNO SKIP 2;
+SET pagesize 20;
+SET linesize 100;
+COLUMN first_name FORMAT A10 WORD_WRAPPED
+COLUMN last_name FORMAT A10 WORD_WRAPPED
+
+SELECT first_name, last_name, birthdate from employee;
+
+TTITLE LEFT "Date: "_DATE CENTER "Project Report" RIGHT "Page: " FORMAT 999 SQL.PNO SKIP 2;
+BTITLE CENTER "Created by: " SQL.USER RIGHT "Page: " FORMAT 999 SQL.PNO SKIP 2;
+SET pagesize 20;
+SET linesize 100;
+COLUMN first_name FORMAT A10 WORD_WRAPPED
+COLUMN last_name FORMAT A10 WORD_WRAPPED
+
+SELECT project_name, project_descript from project;
+
+TTITLE LEFT "Date: "_DATE CENTER "Project Report" RIGHT "Page: " FORMAT 999 SQL.PNO SKIP 2;
+BTITLE CENTER "Created by: " SQL.USER RIGHT "Page: " FORMAT 999 SQL.PNO SKIP 2;
+SET pagesize 20;
+SET linesize 100;
+COLUMN first_name FORMAT A10 WORD_WRAPPED
+COLUMN last_name FORMAT A10 WORD_WRAPPED
+
+SELECT 
 
 -- inserting values into the tables
 
 INSERT INTO employee VALUES(
-    1,
+    s_employee.nextval,
     "Jon",
     "Snow",
     "123 Winterfell",
@@ -40,7 +67,7 @@ INSERT INTO employee VALUES(
 );
 
 INSERT INTO employee VALUES(
-    2,
+    s_employee.nextval,
     "Hacksaw",
     "Jim",
     "894 Everest Rd",
@@ -52,7 +79,7 @@ INSERT INTO employee VALUES(
 );
 
 INSERT INTO employee VALUES(
-    3,
+    s_employee.nextval,
     "Riley",
     "Reid",
     "34 Red Oak Ln",
@@ -64,7 +91,7 @@ INSERT INTO employee VALUES(
 );
 
 INSERT INTO employee VALUES(
-    4,
+    s_employee.nextval,
     "Burt",
     "Bernard",
     "67 Bees Ct",
@@ -77,7 +104,7 @@ INSERT INTO employee VALUES(
 
 
 INSERT INTO employee VALUES(
-    5,
+    s_employee.nextval,
     "Steven",
     "Miller",
     "89 Windrun Rd",
@@ -89,7 +116,7 @@ INSERT INTO employee VALUES(
 );
 
 INSERT INTO employee VALUES(
-    6,
+    s_employee.nextval,
     "Tom",
     "Hanks",
     "4581 Schneid Ct",
@@ -101,7 +128,7 @@ INSERT INTO employee VALUES(
 );
 
 INSERT INTO employee VALUES(
-    7,
+    s_employee.nextval,
     "George",
     "Martin",
     "7 Westoros Ln",
@@ -113,7 +140,7 @@ INSERT INTO employee VALUES(
 );
 
 INSERT INTO employee VALUES(
-    8,
+    s_employee.nextval,
     "Jon",
     "Snow",
     "123 Winterfell",
@@ -125,7 +152,7 @@ INSERT INTO employee VALUES(
 );
 
 INSERT INTO employee VALUES(
-    9,
+    s_employee.nextval,
     'Leo',
     'da Vinci',
     '87 Old Place',
@@ -137,7 +164,7 @@ INSERT INTO employee VALUES(
 );
 
 INSERT INTO employee VALUES(
-    10,
+    s_employee.nextval,
     "John",
     "Cena",
     "321 Unseen St",
@@ -149,71 +176,72 @@ INSERT INTO employee VALUES(
 );
 
 INSERT INTO project VALUES(
-    1,
+    s_project.nextval,
     "Green Initiative",
     "Developing plant meat",
     2018-05-06
 );
 
 INSERT INTO project VALUES(
-    2,
+    s_project.nextval,
     "Red Initiative",
     "Voice enable fire torches",
     2017-12-25
 );
 
 INSERT INTO project VALUES(
-    3,
+    s_project.nextval,
     "Blue Initiative",
     "Smart water filter",
     2016-11-16
 );
 
 INSERT INTO project VALUES(
-    4,
+    s_project.nextval,
     "Soccer Initiative",
     "Making the best cleats",
     2018-04-23
 );
 
 INSERT INTO project VALUES(
-    5,
+    s_project.nextval,
     "Cat in Hat",
     "Smart hat for cats",
     2019-01-03
 );
 
 INSERT INTO project VALUES(
-    6,
+    s_project.nextval,
     "Hydro Power",
     "Ocean water car",
     2017-09-20
 );
 
 INSERT INTO project VALUES(
-    7,
+    s_project.nextval,
     "Smart Writing",
     "Smart pen that checks spelling",
     2018-03-17
 );
 
 INSERT INTO project VALUES(
-    8,
+    s_project.nextval,
     "Dog Chow",
     "Dog food recipe app",
     2016-04-14
 );
 
 INSERT INTO project VALUES(
-    9,
+    s_project.nextval,
     "Awesome Bot",
     "Robot that is a perfect artist",
     2019-08-25
 );
 
 INSERT INTO project VALUES(
-    10,
+    s_project.nextval,
     "8 ball",
     "AI that guides you through the day",
     2017-09-13
 );
+
